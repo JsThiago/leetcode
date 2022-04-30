@@ -1,5 +1,4 @@
 import math
-
 # Tempo: O(n) Espaço: O(n) 
 class Solution:
     def sortedSquares(self, nums: list[int]) -> list[int]:
