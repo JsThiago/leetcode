@@ -1,3 +1,6 @@
+
+#BinarySearch.com
+#Tempo: O(n), Espaço: O(n)
 import math
 
 
@@ -15,7 +18,6 @@ class Solution:
             stack.append(aux.val)
             aux = aux.next
         middle = stack[math.floor(len(stack)/2)]
-        print(middle)
         return middle
 
         
