@@ -1,17 +1,40 @@
+#Somente funciona para valores positivos
 class Solution:
+
+        
     def solve(self, n, total, k):
-        if(k == 0 and total == 2 and n == 19):
-            return 9
-        quant = int(total/n)
-        mod = total % n
-        count = 1
-        if(mod > 0): 
-            while (mod > 0):
-                mod = mod - count
-                count = count + 1
-            return count + quant
-        return quant
-solution = Solution()
-print(solution.solve(n = 19,
-total = 2,
-k = 0))
+        array = [0] * n
+        while total>0:
+            if(k+1<len(array)):
+                if(abs(array[k] - array[k+1]) + 1 > 1):
+                    aux = k + 1
+                    while aux + 1 < len(array) or total > 0:
+                        if(aux + 1 >= len(array)):
+                            break
+                        if(abs(array[aux] - array[aux + 1])+1 > 1):
+                            array[aux] = array[aux] + 1
+                            total = total - 1
+                            aux = aux + 1
+                            continue
+                        break
+                    if(aux == len(array) - 1):
+                        array[aux] = array[aux] + 1
+                        total = total - 1
+            if(k-1>=0):
+                if(abs(array[k] - array[k-1]) + 1 > 1):
+                    aux = k - 1
+                    while aux - 1 >= 0 or total > 0:
+                        if(aux - 1 < 0):
+                                break
+                        if(abs(array[aux] - array[aux + 1])+1 > 1):
+                            array[aux] = array[aux] + 1
+                            total = total - 1
+                            aux = aux - 1                 
+                            continue
+                        break
+                    if(aux == 0):
+                        array[aux] = array[aux] + 1
+                        total = total - 1
+            array[k] = array[k] + 1
+            total = total - 1
+        return array[k]
