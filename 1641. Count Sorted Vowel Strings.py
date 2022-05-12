@@ -12,7 +12,8 @@ class Solution:
             dp[1] = dp[1] + dp[2] + dp[3]
             dp[2] = dp[2] + dp[3]
             i = i + 1
+        print(globalSum)
         return globalSum
 
 solution = Solution()
-solution.countVowelStrings(33)
+solution.countVowelStrings(3)
